@@ -162,42 +162,7 @@ namespace MesaDePartesSacoOliveros
             Pausar();
         }
 
-        private static void BuscarExpediente()
-        {
-            Console.Clear();
-            Console.WriteLine("--- BÚSQUEDA DE EXPEDIENTES ---\n");
-
-            if (listaExpedientes.Count == 0)
-            {
-                Console.WriteLine("No hay expedientes registrados en el sistema.");
-                Pausar();
-                return;
-            }
-
-            Console.Write("Ingrese Código del expediente (ej. EXP-0001) o DNI del remitente: ");
-            string criterio = Console.ReadLine()?.Trim().ToUpper();
-
-            bool encontrado = false;
-            Console.WriteLine("\nResultados encontrados:");
-            Console.WriteLine(new string('-', 80));
-
-            // Búsqueda Secuencial
-            for (int i = 0; i < listaExpedientes.Count; i++)
-            {
-                if (listaExpedientes[i].Codigo.ToUpper() == criterio || listaExpedientes[i].Dni == criterio)
-                {
-                    listaExpedientes[i].MostrarDetalle();
-                    encontrado = true;
-                }
-            }
-
-            if (!encontrado)
-            {
-                Console.WriteLine("No se encontró ningún expediente con el código o DNI ingresado.");
-            }
-
-            Pausar();
-        }
+        
 
         private static void MostrarExpedientes()
         {
